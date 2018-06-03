@@ -28,7 +28,8 @@ app.use(require("express-session")({
 
 
 //CONNECT DATABASE
-mongoose.connect("mongodb://localhost/campground_app");
+//mongoose.connect("mongodb://localhost/campground_app");
+mongoose.connect("mongodb://Peggy:goria12107@ds245210.mlab.com:45210/campground");
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
