@@ -19,7 +19,7 @@ A webpage for sharing posts and comments about campgrounds. Users can create/upd
   - passport
     - Authentication
   - Mongoose
-    - An ORM (Object Document Mapper) allows you to define objects with a strongly-typed schema that is mapped to a MongoDB document.
+    - An ODM (Object Document Mapper) allows you to define objects with a strongly-typed schema that is mapped to a MongoDB document.
   - body-parser
     - Parse incoming request bodies to objects
   - method-override:
