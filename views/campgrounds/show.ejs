@@ -40,7 +40,7 @@
                             <span class="pull-right">10 days ago</span>
                         </div>
                         <p>
-                            <%= comment.text %>
+                            <div style="margin-left: 15px"><%= comment.text %></div>
     
                         </p>
                         <% if (currentUser && comment.author.id.equals(currentUser._id)){ %>

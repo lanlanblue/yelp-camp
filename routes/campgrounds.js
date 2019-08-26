@@ -4,6 +4,7 @@ var Campground = require("../models/campground");
 var middleware = require("../middleware"); //will load "index.js" automatically
 
 router.get("/", function(req, res){
+    //find all items from Campground and return to "allCampgrounds"
     Campground.find({}, function(err, allCampgrounds){
         if(err) {
             console.log(err);

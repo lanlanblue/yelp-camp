@@ -16,24 +16,22 @@ var commentRoutes    = require("./routes/comments"),
     campgroundRoutes = require("./routes/campgrounds"),
     indexRoutes       = require("./routes/index");
 
-
+//CONNECT DATABASE
+var url = process.env.DATABASEURL || "mongodb://localhost/campground_app"
+mongoose.connect(url)
+//mongoose.connect("mongodb://localhost/campground_app");
+//mongoose.connect("mongodb://<dbuser>:<dbpassword>@ds245210.mlab.com:45210/campground");
+//mongoose.connect(process.env.DATABASEURL);
 
 //PASSPORT CONFIGURATION
 app.use(require("express-session")({
-    secret: "Once again Rusty wins cutest dog!",
+    secret: "Your secret key!",
     resave: false,
     saveUninitialized: false
 }));
 
-
-
-//CONNECT DATABASE
-//mongoose.connect("mongodb://localhost/campground_app");
-//mongoose.connect("mongodb://Peggy:goria12107@ds245210.mlab.com:45210/campground");
-mongoose.connect(process.env.DATABASEURL);
-
-app.use(bodyParser.urlencoded({egxtended: true}));
-app.set("view engine", "ejs");
+app.use(bodyParser.urlencoded({egxtended: true}));//declare middleware
+app.set("view engine", "ejs"); //based on views/*ejs
 app.use(express.static(__dirname + "/public"));
 app.use(methodOverride("_method"));
 app.use(flash());
@@ -59,21 +57,7 @@ app.use("/", indexRoutes);
 app.use("/campgrounds", campgroundRoutes);
 app.use("/campgrounds/:id/comments", commentRoutes);
 
-
 app.listen(process.env.PORT, process.env.IP, function(){
     console.log("Camp Yelp start ...");
 });
 
-
-//RESTFUL ROUTES
-
-//name         url                 verb         desc
-//==============================================================================
-//INDEX        /campgrounds        GET          Display a list of all campgrounds
-//NEW          /campgrounds/new    GET          Displays a form to make a new campground
-//CAREATE      /campgrounds        POST         Add new campground to DB
-//SHOW         /campgrounds/:id    GET          Shows info about one campground
-
-//NESTED ROUTES
-//NEW          /campgrounds/:d/comments/new      GET
-//CREATE       /campgrounds/:id/comments         POST
