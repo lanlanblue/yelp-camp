@@ -1,4 +1,4 @@
-# yelp-camp
+# Yelp Camp
 A webpage for sharing posts and comments about campgrounds. Users can create/update/delete their posts and have comments on every post.
 ![demo1.png](https://github.com/lanlanblue/yelp-camp/blob/master/demo1.png)
 
